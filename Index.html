@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?!= include('StyleSheet'); ?>
+       
+        <base target="_top">
+      
+    </head>
+    <body>
+      
+<form id="regForm" onsubmit="handleFormSubmit(this)">
+
+<h1>Course Details:</h1>
+
+
+<div class="tab">Name:
+  <p><input type="text" id="course_name" name="course_name" placeholder="Enter course name..." oninput="this.className = ''"></p>
+
+</div>
+
+<div class="tab" id="quizTab">Quizzes:
+  <p><input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="quiz_no" name="quiz_no" placeholder="number of quizes " oninput="this.className = ''"></p>
+  <button type="button" onclick="addPercentage()">Add percentages</button>
+  
+    <button type="button" onclick="addPercentage2()">Add percentages2</button>
+  
+ 
+</div>
+
+<div class="tab">Assignments:
+  <p><input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="assignment_no" name="assignment_no" placeholder="number of assignments" oninput="this.className = ''"></p>
+  <p><input id="assignment_percentage" name="assignment_percentage"  class="assignment_percentage"  placeholder="enter Percentage" ></p>
+  
+</div>
+
+<div class="tab">Tutorials:
+  <p><input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="tutorial_no" name="tutorial_no" placeholder="number of tutorials " oninput="this.className = ''"></p>
+  <p><input id="tutorial_percentage" name="tutorial_percentage"  class="tutorial_percentage"  placeholder="enter Percentage"></p>
+</div>
+
+<div class="tab">Mid semester:
+  
+  <p><input id="mid_percentage" name="mid_percentage"  class="mid_percentage"  placeholder="enter Percentage"></p>
+</div>
+
+<div class="tab">End semester:
+  <p><input id="end_percentage" name="end_percentage"  class="end_percentage"  placeholder="enter Percentage"></p>
+</div>
+         
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    <button type="submit" id="submit_button">Submit</button>
+    
+  </div>
+  
+  <div class="tab">
+  <div class="summery">
+       <h2>summery</h2>
+          <h3>Course name</h3>
+           <p id="coursename_text" > test </p>
+         
+         <table style = "width 100%" border="1">
+         <tr class="table_header">
+              <th>Evaluation type</th>
+              <th> Quizzes</th>
+              <th>Assignments</th>
+              <th>Tutorials</th>
+              <th>Mid semester</th>
+              <th>End semester</th>
+         </tr>
+         <tr class="number_of">
+            <th>Number of</th>
+            <td id="quizNo">test</td>
+            <td id="assignmentNo">test</td>
+            <td id="tutorialNo">test</td>
+           
+          </tr> 
+          
+          <tr class="percentages">
+            <th>Percentages</th>
+            <td id="quiz_percentagetxt">test</td>
+            <td id="assignment_percentagetxt">test</td>
+            <td id="tutorial_percentagetxt">test</td>
+            <td id="mid_percentagetxt">test</td>
+            <td id="end_percentagetxt">test</td>
+           </tr>
+          
+          </table>
+             
+      
+  </div>
+  
+  </div>
+  
+ 
+ 
+  
+  
+  
+</div>
+
+
+</form>
+
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+
+
+
+<?!= include('Javascript'); ?>
+    </body>
+</html>
