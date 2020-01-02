@@ -4,6 +4,7 @@ showTab(currentTab);
 
 
 
+
 function showTab(n) {
   
   
@@ -19,39 +20,39 @@ function showTab(n) {
     document.getElementById("nextBtn").style.display = "none";
     document.getElementById("submit_button").style.display = "inline";
     displaySummery();
+    
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
  
-  fixStepIndicator(n)
+ 
 }
 
+ 
 
+function addQuiz(){
+   
+   var new_quiz= parseInt($('#total_quizes').val())+1;
+      var new_input="<input type='text' placeholder = 'Enter percentage for quiz " + new_quiz + "'" + "id='new_"+new_quiz+"'>";
+      $('#new_quiz').append(new_input);
+      $('#total_quizes').val(new_quiz);
+         
+}
 
-function addPercentage(){
-var i, noOfQuiz = document.getElementById("quiz_no").value;
-var id = "quiz_percentages";
-var ids = "quiz_percentages";
-
-     for(i=0;i< noOfQuiz;i++){
-     
-     ids = "quiz_percentages" +i
-     var newInput = document.createElement("input");
-     
-
-     var element = document.getElementById("quizTab");
-     element.appendChild(newInput);
-     newInput.setAttribute("type","text");
-     newInput.setAttribute("id",ids);
-     newInput.setAttribute("name",id);
-     newInput.setAttribute("class",id);
-
+  function removeQuiz(){
+      var last_quiz = $('#total_quizes').val();
+      if(last_quiz>= 1){
+        $('#new_'+last_quiz).remove();
+        $('#total_quizes').val(last_quiz-1);
+      }
   }
-  
-     
-}
 
-function addPercentage2(){
+
+
+
+
+
+function createPercentageArrray(){
 
 var i , x = document.getElementsByClassName("quiz_percentages");
 var percentages = [];
@@ -59,17 +60,16 @@ var percentages = [];
    for(i=0; i<x.length;i++){
     percentages.push(x[i].value);
    }
-   console.log(percentages);
+   //console.log(percentages);
+   
+   google.script.run.getArr(percentages);
 }
 
 
 
 
 
-
-
-
-
+  
 
 
 
@@ -102,6 +102,7 @@ document.getElementById("end_percentagetxt").innerHTML = endPercentage +"%";
   
  function handleFormSubmit(formObject) {
     google.script.run.processForm(formObject);
+    
     document.getElementById("regForm").reset();
   }
 
@@ -127,14 +128,6 @@ function nextPrev(n) {
 
 
 
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class to the current step:
-  x[n].className += " active";
-}
+
 
 </script>

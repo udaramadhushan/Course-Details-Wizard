@@ -2,8 +2,10 @@
 <html>
     <head>
         <?!= include('StyleSheet'); ?>
+      
        
         <base target="_top">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       
     </head>
     <body>
@@ -19,12 +21,14 @@
 </div>
 
 <div class="tab" id="quizTab">Quizzes:
-  <p><input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="quiz_no" name="quiz_no" placeholder="number of quizes " oninput="this.className = ''"></p>
-  <button type="button" onclick="addPercentage()">Add percentages</button>
-  
-    <button type="button" onclick="addPercentage2()">Add percentages2</button>
   
  
+
+  <button type="button" onclick="addQuiz()">Add Quiz</button>
+  <button type= "button" onclick="removeQuiz()">remove quiz</button>
+  <div id="new_quiz"></div>
+  <input type="hidden" value="0" id="total_quizes">
+
 </div>
 
 <div class="tab">Assignments:
@@ -105,13 +109,7 @@
 </form>
 
 
-<!-- Circles which indicates the steps of the form: -->
-<div style="text-align:center;margin-top:40px;">
-  <span class="step"></span>
-  <span class="step"></span>
-  <span class="step"></span>
-  <span class="step"></span>
-</div>
+
 
 
 
